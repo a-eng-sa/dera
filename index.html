@@ -257,10 +257,7 @@ input,textarea,select{font-size:16px}
     <main class="shell">
         <section class="panel">
             <h2>إعداد بيانات البطاقة</h2>
-            <span class="label">نوع المناسبة</span>
-            <div class="categories" id="categories">
-                
-            </div>
+            
             <label class="label" for="title">عنوان البطاقة</label>
             <input id="title" value="">
             <label class="label" for="person">اسم الشخص أو الجهة</label>
@@ -343,17 +340,7 @@ input,textarea,select{font-size:16px}
     </main>
     <div class="foot">© جمعية درع للبحث والإنقاذ والإغاثة بمنطقة تبوك </div>
     <script>
-const templates=[
-'الشكر والتقدير'
-,'التهنئة '
-,'تعزية '
-,'التكريم '
-,'المناسبات الوطنية'
-,'الأعياد والمناسبات '
-,'الترحيب بالأعضاء والمتطوعين'
-,'فعاليات الجمعية الرسمية']
-.map(x=>[x,'','']);
-let selected=0;
+
 const ids=[
 'title',
 'person',
@@ -364,16 +351,7 @@ const ids=[
 'accent',
 'size'];
 const el=id=>document.getElementById(id);
-const cats=el('categories');
-templates.forEach((t,i)=>{const b=document.createElement('button');
-b.className='cat'+(i===0?' active':'');
-b.textContent=t[0];
-b.onclick=()=>{selected=i;
-    document.querySelectorAll('.cat').forEach((x,j)=>x.classList.toggle('active',j===i));
-    el('title').value=t[1];
-    el('message').value=t[2];
-    draw()};
-    cats.appendChild(b)});
+
     let userBg=null;
     const bgUpload=el('bgUpload');
     bgUpload.addEventListener('change',()=>{const file=bgUpload.files&&bgUpload.files[0];
